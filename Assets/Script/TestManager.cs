@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using static GeometricClass;
-using static GeometricServices;
+using static Intersection;
 public class TestManager : MonoBehaviour
 {
     [Header("Objects")]
