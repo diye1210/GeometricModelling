@@ -1,0 +1,13 @@
+Fonctionnalités développées:
+
+	-Algorithme de subdivision de mesh "Catmull Clark" : CatmullClark
+		-TestCatmullClark : subdivise le mesh du game object Nb_iterations fois
+		-MeshDisplayInfo : affiche les informations de debug
+		-Mesh generator : génération de mesh
+		-CatmullClark : algorithme de Catmull Clark
+		-HalfEdge : implémentation de la structure HalfEdge pour Catmull Clark
+
+	-Intersection : Intersection
+		-TestManager : affiche, teste, toutes les collisions / informations (sphère, cylindre, plan, distances)
+		-GeometricClass : définition des objets géométriques
+		-GeometricServices : algotithmes de collisions
