@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static GeometricClass;
+using static FormClass;
 
 
 public class Intersection 
 {
-    public static bool InterSegmentPlane(Segment seg, GeometricClass.Plane plane, out Vector3 interPt, out Vector3 interNormal)
+    public static bool InterSegmentPlane(Segment seg, FormClass.Plane plane, out Vector3 interPt, out Vector3 interNormal)
     {
         //déclaration des variables
         Vector3 AB = seg.pt2 - seg.pt1;
@@ -34,7 +34,7 @@ public class Intersection
         return true;
     } 
 
-    public static bool InterSegmentSphere( Segment seg, GeometricClass.Sphere sphere, out Vector3 interPt, out Vector3 interNormal)
+    public static bool InterSegmentSphere( Segment seg, FormClass.Sphere sphere, out Vector3 interPt, out Vector3 interNormal)
     {
         //déclaration des variables 
         Vector3 AB = seg.pt2 - seg.pt1;

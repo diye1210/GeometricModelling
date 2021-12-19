@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static GeometricClass;
+using static FormClass;
 using static Intersection;
 public class TestManager : MonoBehaviour
 {
@@ -136,7 +136,7 @@ public class TestManager : MonoBehaviour
             Vector3 interNormal;
             Segment segment = new Segment { pt1 = PointA.transform.position, pt2 = PointB.transform.position };
             Vector3 norm = Plane.transform.up;
-            GeometricClass.Plane plane = new GeometricClass.Plane { Normal = norm, d = Vector3.Dot(norm, Plane.transform.position) };
+            FormClass.Plane plane = new FormClass.Plane { Normal = norm, d = Vector3.Dot(norm, Plane.transform.position) };
             if (InterSegmentPlane(segment, plane, out interpt, out interNormal))
             {
                 Gizmos.color = Color_Intersect_Plane;
@@ -152,7 +152,7 @@ public class TestManager : MonoBehaviour
             Vector3 interpt;
             Vector3 interNormal;
             Segment segment = new Segment { pt1 = PointA.transform.position, pt2 = PointB.transform.position };
-            GeometricClass.Cylinder cylinder = new GeometricClass.Cylinder { pt1 = Cylinder.transform.position, pt2 = Cylinder.transform.position + Cylinder.transform.up, radius = Cylinder.transform.localScale.x / 2 };
+            FormClass.Cylinder cylinder = new FormClass.Cylinder { pt1 = Cylinder.transform.position, pt2 = Cylinder.transform.position + Cylinder.transform.up, radius = Cylinder.transform.localScale.x / 2 };
             if (InterSegmentCylinder(segment, cylinder, out interpt, out interNormal))
             {
                 Gizmos.color = Color_Intersect_Cylinder;
@@ -168,7 +168,7 @@ public class TestManager : MonoBehaviour
             Vector3 interpt;
             Vector3 interNormal;
             Segment segment = new Segment { pt1 = PointA.transform.position, pt2 = PointB.transform.position };
-            GeometricClass.Sphere sphere = new GeometricClass.Sphere { center = Sphere.transform.position, radius = Sphere.transform.localScale.x / 2 };
+            FormClass.Sphere sphere = new FormClass.Sphere { center = Sphere.transform.position, radius = Sphere.transform.localScale.x / 2 };
             if (InterSegmentSphere(segment, sphere, out interpt, out interNormal))
             {
                 Gizmos.color = Color_Intersect_Sphere;

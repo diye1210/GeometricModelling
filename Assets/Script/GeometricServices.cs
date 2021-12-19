@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static GeometricClass;
+using static FormClass;
 
 public static class GeometricServices
 {
 
-    public static bool InterSegmentPlane(Segment segment, GeometricClass.Plane plane, out Vector3 interpt, out Vector3 interNormal)
+    public static bool InterSegmentPlane(Segment segment, FormClass.Plane plane, out Vector3 interpt, out Vector3 interNormal)
     {
         interpt = new Vector3();
         interNormal = new Vector3();
@@ -47,7 +47,7 @@ public static class GeometricServices
 
     }
 
-    public static bool InterSegmentSphere(Segment segment, GeometricClass.Sphere sphere, out Vector3 interpt, out Vector3 interNormal)
+    public static bool InterSegmentSphere(Segment segment, FormClass.Sphere sphere, out Vector3 interpt, out Vector3 interNormal)
     {
         interpt = new Vector3();
         interNormal = new Vector3();
