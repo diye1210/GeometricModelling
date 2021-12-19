@@ -1,13 +1,24 @@
-Fonctionnalités développées:
+FONCTIONNALITES
 
-	-Algorithme de subdivision de mesh "Catmull Clark" : CatmullClark
-		-TestCatmullClark : subdivise le mesh du game object Nb_iterations fois
-		-MeshDisplayInfo : affiche les informations de debug
-		-Mesh generator : génération de mesh
-		-CatmullClark : algorithme de Catmull Clark
-		-HalfEdge : implémentation de la structure HalfEdge pour Catmull Clark
+> Algorithme de subdivision de mesh Catmull Clark => Scene Unity 3D CatmullClark
 
-	-Intersection : Intersection
-		-TestManager : affiche, teste, toutes les collisions / informations (sphère, cylindre, plan, distances)
-		-GeometricClass : définition des objets géométriques
-		-GeometricServices : algotithmes de collisions
+	> CalmullClark : algorithme
+	> TestCClark : subdivision du mesh$
+	> HalfEdge : structure HalfEdge
+	> HalfEdgeMesh : algorithme HalfEdge
+ 
+
+> Intersections  => Scene Unity 3D Intersection
+
+	> FormClass : structures du segment, plan, sphere et cylindre
+	> Face : structure d'une face
+	> Vertex : structure d'une vertex
+	> MeshGenerator/MeshDisplayInfo : génération/affichage des mesh
+	> Intersection : algorithme des intersections 
+	> TestObjects : teste et affichage des intersections
+
+
+> OrientateRandom/RotateAroundRandomAxis : rotation des formes 
+
+> Répartition du travail : Réfléxion des algorithmes ensemble puis division des implémentations
+
