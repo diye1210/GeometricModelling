@@ -9,6 +9,7 @@ public class MeshGenerator : MonoBehaviour
     private void Awake()
     {
         m_Mf = GetComponent<MeshFilter>();
+        Mesh mesh = CreateRegularPolygonXZQuads(1, 3);
         //Mesh mesh = CreateTriangle();
         //Mesh mesh = CreateQuadXZ(new Vector3(4,0,2));
         //Mesh mesh = CreateStripXZ(new Vector3(4, 0, 2),200);
@@ -40,7 +41,7 @@ public class MeshGenerator : MonoBehaviour
 
 
 
-        Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) => new Vector3( (kX - 0.5f) * 4, Mathf.Sin(kX * Mathf.PI * 2 * 3), (kZ - .5f) * 2));
+        //Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) => new Vector3( (kX - 0.5f) * 4, Mathf.Sin(kX * Mathf.PI * 2 * 3), (kZ - .5f) * 2));
         //Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) =>
         //{
         //    float rho = 2;
@@ -139,7 +140,7 @@ public class MeshGenerator : MonoBehaviour
 
         //Triangles
         index = 0;
-        //double boucle également
+        //double boucle Ã©galement
         for (int i = 0; i < nSegmentsX; i++)
         {
             for (int j = 0; j < nSegmentsZ; j++)
@@ -181,7 +182,7 @@ public class MeshGenerator : MonoBehaviour
 
         //Triangles
         index = 0;
-        //double boucle également
+        //double boucle Ã©galement
         for (int i = 0; i < nSegmentsX; i++)
         {
             for (int j = 0; j < nSegmentsZ; j++)
@@ -290,7 +291,7 @@ public class MeshGenerator : MonoBehaviour
 
         //Quads
         index = 0;
-        //double boucle également
+        //double boucle Ã©galement
         for (int i = 0; i < nSegmentsX; i++)
         {
             for (int j = 0; j < nSegmentsZ; j++)
