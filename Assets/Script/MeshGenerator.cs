@@ -9,48 +9,7 @@ public class MeshGenerator : MonoBehaviour
     private void Awake()
     {
         m_Mf = GetComponent<MeshFilter>();
-        //Mesh mesh = CreateTriangle();
-        //Mesh mesh = CreateQuadXZ(new Vector3(4,0,2));
-        //Mesh mesh = CreateStripXZ(new Vector3(4, 0, 2),200);
-
-        //Mesh mesh = CreatePlaneXZ(new Vector3(4, 0, 2), 20,10);
-        //Mesh mesh = CreateQuadXZ(new Vector3(4, 0, 2));
-        //Mesh mesh = WrapNormalizePlane( 20, 10, (kX,kZ)=>new Vector3((kX-0.5f)*4,0,(kZ-0.5f)*2) );
-        /*
-        Mesh mesh = WrapNormalizePlane(20, 100,
-        (kX, kZ) =>{
-        float rho = 2*(1+.25f*Mathf.Sin(kZ*Mathf.PI*2*4));
-        float theta = kX * 2 * Mathf.PI;
-        float y = kZ * 4;
-        return new Vector3(rho*Mathf.Cos(theta),y, rho * Mathf.Sin(theta));
-        }
-        );*/
-
-
-        //Mesh mesh = 
-        //    WrapNormalizePlane(200, 100,
-        //        (kX, kZ) =>
-        //        {
-        //            float rho = 2 * (1 + .25f * Mathf.Sin(kZ * Mathf.PI * 2 * 4));
-        //            float theta = kX * 2 * Mathf.PI;
-        //            float phi = (1 - kZ) * Mathf.PI;
-        //            return rho * new Vector3(Mathf.Cos(theta) * Mathf.Sin(phi), Mathf.Cos(phi), Mathf.Sin(theta) * Mathf.Sin(phi));
-        //        }
-        //    );
-
-
-
-        //Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) => new Vector3( (kX - 0.5f) * 4, Mathf.Sin(kX * Mathf.PI * 2 * 3), (kZ - .5f) * 2));
-        //Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) =>
-        //{
-        //    float rho = 2;
-        //    float theta = kX * 2 * Mathf.PI;
-        //    float phi = (1 - kZ) * Mathf.PI;
-        //    return new Vector3(rho * Mathf.Cos(theta), rho * Mathf.Cos(phi), rho * Mathf.Sin(theta) * Mathf.Sin(phi));
-        //    //return new Vector3(rho * Mathf.Sin(theta) * Mathf.Sin(phi), rho * Mathf.Cos(phi), rho * Mathf.Cos(theta));
-        //    //return new Vector3(rho * Mathf.Cos(theta), rho * Mathf.Cos(phi), rho * Mathf.Sin(theta) * Mathf.Sin(phi));
-        //});
-        //m_Mf.sharedMesh = CreateStripXZQuads(new Vector3(4, 0, 2), 5);
+ 
         Mesh mesh = CreateRegularPolygonXZQuads(1, 3);
         m_Mf.sharedMesh = mesh;
         gameObject.AddComponent<MeshCollider>();
