@@ -147,7 +147,7 @@ public class CatmullClark : MonoBehaviour
             index += 4;
         }
         halfEdgeMesh.neighborsFaces = neighborsFaces;
-        halfEdgeMesh.SetTwinEdges();
+        halfEdgeMesh.SetDoubleEdges();
         return halfEdgeMesh;
 
     }
@@ -210,10 +210,10 @@ public class CatmullClark : MonoBehaviour
         Vertex vertex1 = edge.source;
         Vertex vertex2 = edge.nextEdge.source;
         Vertex result;
-        if (edge.twinEdge != null)
+        if (edge.doubleEdge != null)
         {
             Vertex vertex3 = FacePoint(edge.face);
-            Vertex vertex4 = FacePoint(edge.twinEdge.face);
+            Vertex vertex4 = FacePoint(edge.doubleEdge.face);
             result = new Vertex((vertex1.position + vertex2.position + vertex3.position + vertex4.position) / 4);
         }
         else
@@ -280,7 +280,7 @@ public class CatmullClark : MonoBehaviour
         newHalfEdge.prevEdge = e;
         e.nextEdge = newHalfEdge;
 
-        halfEdgeMesh.Add(newHalfEdge);
+        halfEdgeMesh.AddHalfEdge(newHalfEdge);
 
         return newHalfEdge;
     }
@@ -334,8 +334,8 @@ public class CatmullClark : MonoBehaviour
         SetNextPrevEdge(halfEdges[(index + 1) % 4], halfEdges[(index + 2) % 4]);
         SetNextPrevEdge(halfEdges[(index + 2) % 4], startEdge.prevEdge);
 
-        halfEdgeMesh.Add(halfEdges[(index + 1) % 4]);
-        halfEdgeMesh.Add(halfEdges[(index + 2) % 4]);
+        halfEdgeMesh.AddHalfEdge(halfEdges[(index + 1) % 4]);
+        halfEdgeMesh.AddHalfEdge(halfEdges[(index + 2) % 4]);
     }
 
     /// <summary>
@@ -363,7 +363,7 @@ public class CatmullClark : MonoBehaviour
         foreach (Face face in faces)
         {
             Vertex facePoint = FacePoint(face);
-            halfEdgeMesh.Add(facePoint);
+            halfEdgeMesh.AddVertex(facePoint);
             facePoints.Add(facePoint);
         }
 
@@ -371,7 +371,7 @@ public class CatmullClark : MonoBehaviour
         foreach (HalfEdge halfEdge in halfEdges)
         {
             Vertex edgePoint = EdgePoint(halfEdge);
-            halfEdgeMesh.Add(edgePoint);
+            halfEdgeMesh.AddVertex(edgePoint);
             edgePoints.Add(edgePoint);
         }
 
@@ -394,9 +394,9 @@ public class CatmullClark : MonoBehaviour
             Face f3 = new Face(halfEdgeMesh.faces.Count + 1);
             Face f4 = new Face(halfEdgeMesh.faces.Count + 2);
 
-            halfEdgeMesh.Add(f2);
-            halfEdgeMesh.Add(f3);
-            halfEdgeMesh.Add(f4);
+            halfEdgeMesh.AddFace(f2);
+            halfEdgeMesh.AddFace(f3);
+            halfEdgeMesh.AddFace(f4);
 
             //Split every edges in 2
             HalfEdge halfEdgeFace2 = SplitEdge(halfEdge1, edgePoints[halfEdge1.index], halfEdgeMesh);

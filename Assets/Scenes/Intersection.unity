@@ -334,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599530388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.402039, y: 59.9, z: -3.1301808}
+  m_LocalPosition: {x: 68.7, y: 59.9, z: -7.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 651019835}
   - component: {fileID: 651019834}
   - component: {fileID: 651019833}
+  - component: {fileID: 651019837}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -429,13 +430,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651019832}
-  m_LocalRotation: {x: -0, y: -0, z: -0.20229991, w: 0.9793236}
-  m_LocalPosition: {x: 31.5, y: 49.5, z: 42}
-  m_LocalScale: {x: 30.56, y: 1.528, z: 30.56}
+  m_LocalRotation: {x: -0, y: -0, z: 0.008077591, w: 0.9999674}
+  m_LocalPosition: {x: 71.5, y: 55.6, z: -0.5}
+  m_LocalScale: {x: 14.308482, y: 1.528, z: 19.023907}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.926}
+--- !u!114 &651019837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651019832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4dd43168f566a41bac79d98e41ecc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationDuration: 30
+  m_RotationSpeed: 3
+  m_QuaternionLerpCoef: 50
 --- !u!1 &669988164
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,13 +528,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669988164}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.15643911, y: -0.6297138, z: 0.13144138, w: 0.7494735}
+  m_LocalPosition: {x: 345, y: 210, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.58, y: -80.074, z: 0}
 --- !u!1 &893559985
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +577,8 @@ GameObject:
   - component: {fileID: 1273694678}
   - component: {fileID: 1273694677}
   - component: {fileID: 1273694676}
+  - component: {fileID: 1273694680}
+  - component: {fileID: 1273694681}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -638,13 +656,42 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273694675}
-  m_LocalRotation: {x: -0.83933014, y: -0, z: -0, w: 0.54362214}
-  m_LocalPosition: {x: 39.6, y: 80.3, z: -4.3}
-  m_LocalScale: {x: 22.307224, y: 4461.4453, z: 22.307224}
+  m_LocalRotation: {x: 0.10982403, y: -0.9934265, z: 0.03210691, w: 0.0034044248}
+  m_LocalPosition: {x: 65.2, y: 59, z: 4.3}
+  m_LocalScale: {x: 15, y: -133.95744, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -114.139, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -183.7, y: -0.016998291, z: -192.617}
+--- !u!114 &1273694680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273694675}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4dd43168f566a41bac79d98e41ecc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationDuration: 30
+  m_RotationSpeed: 3
+  m_QuaternionLerpCoef: 30
+--- !u!114 &1273694681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273694675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d96f47b29146694a83b36dbcb478b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxAngle: 250
+  m_QuaternionLerpCoef: 1
 --- !u!1 &1847876864
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +704,7 @@ GameObject:
   - component: {fileID: 1847876867}
   - component: {fileID: 1847876866}
   - component: {fileID: 1847876865}
+  - component: {fileID: 1847876869}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -734,9 +782,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847876864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.3, y: 74.2, z: -0.6}
-  m_LocalScale: {x: 43.204, y: 43.204, z: 43.204}
+  m_LocalPosition: {x: 72.3, y: 55, z: -0.6}
+  m_LocalScale: {x: 91.65297, y: 91.65297, z: 91.65297}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1847876869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847876864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4dd43168f566a41bac79d98e41ecc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationDuration: 30
+  m_RotationSpeed: 3
+  m_QuaternionLerpCoef: 50
