@@ -9,12 +9,52 @@ public class MeshGenerator : MonoBehaviour
     private void Awake()
     {
         m_Mf = GetComponent<MeshFilter>();
- 
         Mesh mesh = CreateRegularPolygonXZQuads(1, 3);
+        //Mesh mesh = CreateTriangle();
+        //Mesh mesh = CreateQuadXZ(new Vector3(4,0,2));
+        //Mesh mesh = CreateStripXZ(new Vector3(4, 0, 2),200);
+
+        //Mesh mesh = CreatePlaneXZ(new Vector3(4, 0, 2), 20,10);
+        //Mesh mesh = CreateQuadXZ(new Vector3(4, 0, 2));
+        //Mesh mesh = WrapNormalizePlane( 20, 10, (kX,kZ)=>new Vector3((kX-0.5f)*4,0,(kZ-0.5f)*2) );
+        /*
+        Mesh mesh = WrapNormalizePlane(20, 100,
+        (kX, kZ) =>{
+        float rho = 2*(1+.25f*Mathf.Sin(kZ*Mathf.PI*2*4));
+        float theta = kX * 2 * Mathf.PI;
+        float y = kZ * 4;
+        return new Vector3(rho*Mathf.Cos(theta),y, rho * Mathf.Sin(theta));
+        }
+        );*/
+
+
+        //Mesh mesh = 
+        //    WrapNormalizePlane(200, 100,
+        //        (kX, kZ) =>
+        //        {
+        //            float rho = 2 * (1 + .25f * Mathf.Sin(kZ * Mathf.PI * 2 * 4));
+        //            float theta = kX * 2 * Mathf.PI;
+        //            float phi = (1 - kZ) * Mathf.PI;
+        //            return rho * new Vector3(Mathf.Cos(theta) * Mathf.Sin(phi), Mathf.Cos(phi), Mathf.Sin(theta) * Mathf.Sin(phi));
+        //        }
+        //    );
+
+
+
+        //Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) => new Vector3( (kX - 0.5f) * 4, Mathf.Sin(kX * Mathf.PI * 2 * 3), (kZ - .5f) * 2));
+        //Mesh mesh = WrapNormalizePlaneQuads(20, 10, (kX, kZ) =>
+        //{
+        //    float rho = 2;
+        //    float theta = kX * 2 * Mathf.PI;
+        //    float phi = (1 - kZ) * Mathf.PI;
+        //    return new Vector3(rho * Mathf.Cos(theta), rho * Mathf.Cos(phi), rho * Mathf.Sin(theta) * Mathf.Sin(phi));
+        //    //return new Vector3(rho * Mathf.Sin(theta) * Mathf.Sin(phi), rho * Mathf.Cos(phi), rho * Mathf.Cos(theta));
+        //    //return new Vector3(rho * Mathf.Cos(theta), rho * Mathf.Cos(phi), rho * Mathf.Sin(theta) * Mathf.Sin(phi));
+        //});
+        //m_Mf.sharedMesh = CreateStripXZQuads(new Vector3(4, 0, 2), 5);
         m_Mf.sharedMesh = mesh;
         gameObject.AddComponent<MeshCollider>();
     }
-    #region Triangles
     Mesh CreateTriangle()
     {
         Mesh newMesh = new Mesh();
@@ -100,7 +140,7 @@ public class MeshGenerator : MonoBehaviour
 
         //Triangles
         index = 0;
-        //double boucle également
+        //double boucle Ã©galement
         for (int i = 0; i < nSegmentsX; i++)
         {
             for (int j = 0; j < nSegmentsZ; j++)
@@ -142,7 +182,7 @@ public class MeshGenerator : MonoBehaviour
 
         //Triangles
         index = 0;
-        //double boucle également
+        //double boucle Ã©galement
         for (int i = 0; i < nSegmentsX; i++)
         {
             for (int j = 0; j < nSegmentsZ; j++)
@@ -165,9 +205,6 @@ public class MeshGenerator : MonoBehaviour
         newMesh.RecalculateNormals();
         return newMesh;
     }
-    #endregion
-
-    #region Quad
 
     Mesh CreateQuadXZ(Vector3 size)
     {
@@ -254,7 +291,7 @@ public class MeshGenerator : MonoBehaviour
 
         //Quads
         index = 0;
-        //double boucle également
+        //double boucle Ã©galement
         for (int i = 0; i < nSegmentsX; i++)
         {
             for (int j = 0; j < nSegmentsZ; j++)
@@ -273,60 +310,5 @@ public class MeshGenerator : MonoBehaviour
         return newMesh;
     }
 
-    Mesh CreateRegularPolygonXZQuads(float radius, int nQuads)
-    {
-        Mesh newMesh = new Mesh();
-        newMesh.name = "RegularPolygonQuads";
-
-        Vector3[] vertices = new Vector3[nQuads * 2 + 1];
-        int[] quads = new int[nQuads * 4];
-
-        vertices[0] = Vector3.zero;
-
-
-        Vector3[] points = new Vector3[nQuads];
-        //Points
-        for (int i = 0; i < nQuads; i++)
-        {
-            float x = Mathf.Sin(((float)i / nQuads) * 2 * Mathf.PI);
-            float z = Mathf.Cos(((float)i / nQuads) * 2 * Mathf.PI);
-            points[i] = new Vector3(x, 0, z);
-        }
-
-
-        //Vertices
-        int index = 1;
-        for (int i = 0; i < nQuads; i++)
-        {
-            vertices[index++] = points[i];
-            int idx = (i + 1) % nQuads;
-            Vector3 a = points[i];
-            Vector3 b = points[idx];
-            Vector3 c = (a + b) / 2;
-            vertices[index++] = c;
-        }
-
-        //Quads
-        index = 0;
-        for (int i = 0; i < nQuads - 1; i++)
-        {
-            quads[index++] = 0;
-            quads[index++] = (2 * (i + 1));
-            quads[index++] = (2 * (i + 1) + 1);
-            quads[index++] = (2 * (i + 1) + 2);
-        }
-        quads[index++] = 0;
-        quads[index++] = nQuads * 2;
-        quads[index++] = 1;
-        quads[index++] = 2;
-
-
-
-        newMesh.vertices = vertices;
-        newMesh.SetIndices(quads, MeshTopology.Quads, 0);
-        newMesh.RecalculateBounds();
-        newMesh.RecalculateNormals();
-        return newMesh;
-    }
-    #endregion
+    
 }

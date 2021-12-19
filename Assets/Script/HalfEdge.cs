@@ -24,7 +24,7 @@ public class HalfEdge
         prevEdge = prev;
         nextEdge = next;
         this.doubleEdge = doubleEdge;
-        face = face;
+        this.face = face;
     }
 }
 
